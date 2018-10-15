@@ -1,46 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import {HttpClientModule} from '@angular/common/http';
-import { BootstrapModalModule } from 'ng2-bootstrap-modal';
+import { AppComponent } from './app.component';
+import { RegisterComponent } from './components/register/register.component';
 
-import {
-  AppComponent,
-  SignInComponent,
-  ChoosePartnerComponent,
-  ConfirmComponent,
-  GameComponent,
-  BoardComponent,
-  CardComponent,
-  UserService,
-  GameService,
-  routing
-}
-  from './imports';
+import { routing }        from './app.routing';
+import {HttpClientModule} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { ChoosenComponent } from './components/choosen/choosen.component';
+import { GameComponent } from './components/game/game.component';
+import { PartnerComponent } from './components/partner/partner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignInComponent,
-    ChoosePartnerComponent,
-    ConfirmComponent,
+    RegisterComponent,
+    ChoosenComponent,
     GameComponent,
-    BoardComponent,
-    CardComponent
+    PartnerComponent,
   ],
   imports: [
     BrowserModule,
+    routing,
     ReactiveFormsModule,
-    RouterModule,
     HttpClientModule,
-    BootstrapModalModule.forRoot({container:document.body}),
-    routing
+    FormsModule
   ],
-  entryComponents: [
-    ConfirmComponent
-  ],
-  providers: [UserService,GameService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

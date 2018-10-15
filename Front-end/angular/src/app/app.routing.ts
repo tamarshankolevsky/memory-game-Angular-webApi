@@ -1,27 +1,26 @@
 import { Routes, RouterModule } from '@angular/router';
+import { RegisterComponent } from './components/register/register.component';
+import { ChoosenComponent } from './components/choosen/choosen.component';
+import { GameComponent } from './components/game/game.component';
+import { PartnerComponent } from './components/partner/partner.component';
 
-import {
-    SignInComponent,
-    ChoosePartnerComponent,
-    GameComponent
-} from './imports';
-
-export const routes: Routes = [
+const appRoutes: Routes = [
     {
-        path: 'memoryGame',
-        children: [
-            { path: 'signIn', component: SignInComponent },
-            { path: 'choosePartner', component: ChoosePartnerComponent },
-            { path: 'game', component: GameComponent },
-        ]
+        path: '', component: RegisterComponent
     },
-    { 
-        path: '', redirectTo: 'memoryGame/signIn', pathMatch: 'prefix' 
+    {
+        path: 'register', component: RegisterComponent
     },
-    // otherwise redirect to home
-    { 
-        path: '**', redirectTo: 'memoryGame/signIn' 
+    {
+        path: 'choosing', component: ChoosenComponent
+        
+    },
+    {
+        path: 'partner', component: PartnerComponent
+    },
+    {
+        path: 'game', component: GameComponent
     }
 ];
 
-export const routing = RouterModule.forRoot(routes);
+export const routing = RouterModule.forRoot(appRoutes);
